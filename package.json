@@ -7,7 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:github": "del ./docs && ng build --base-href /CountryApp/ && copyfiles dist/countryApp/* ./docs -f && copyfiles dist/countryApp/browser/* ./docs -f && copyfiles docs/browser/* ./docs -f && del dist"
+    "del:docs": "del ./docs",
+    "build:href": "ng build --base-href /CountryApp/",
+    "copy:outBrowser": "copyfiles dist/country-app/* ./docs -f",
+    "copy:inBrowser": "copyfiles dist/country-app/browser/* ./docs -f",
+    "copy:toDocs": "copyfiles docs/browser/* ./docs -f",
+    "del:dist": "del dist",
+    "build:github": "npm run del:docs && npm run build:href && npm run copy:outBrowser && npm run copy:inBrowser && npm run copy:toDocs && npm run del:dist"
   },
   "private": true,
   "dependencies": {
@@ -19,7 +25,6 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
-    "copyfiles": "^2.4.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -29,6 +34,8 @@
     "@angular/cli": "^19.1.6",
     "@angular/compiler-cli": "^19.1.0",
     "@types/jasmine": "~5.1.0",
+    "copyfiles": "^2.4.1",
+    "del-cli": "^6.0.0",
     "jasmine-core": "~5.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
