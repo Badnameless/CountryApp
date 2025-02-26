@@ -3,4 +3,6 @@ type="text"
 class="form-control"
 [placeholder]="placeholder"
 #txtInput
-(keyup.enter)="emitTerm(txtInput.value)">
+(keyup)="onKeyPress(txtInput.value)"
+(keyup.enter)="emitTerm(txtInput.value)"
+>

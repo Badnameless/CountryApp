@@ -19,10 +19,10 @@
         <td>{{ i + 1 }}</td>
         <td>{{ country.flag }}</td>
         <td><img [src]="country.flags.svg" [alt]="country.name.common"></td>
-        <td>{{ country.capital }}</td>
+        <td>{{ country.capital ? country.capital : "Sin información"}}</td>
         <td>{{ country.name.common }}</td>
         <td>{{ country.population | number }}</td>
-        <td><a [routerLink]="['/countries/by', country.cca3]">Ver más</a></td>
+        <td><a [routerLink]="['/countries/by', country.cca3]">Info</a></td>
       </tr>
     </tbody>
   </table>

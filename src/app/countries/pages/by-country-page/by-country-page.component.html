@@ -1,8 +1,8 @@
-<h2>Por país</h2>
+<h1>Por país</h1>
 <hr>
 <div class="row">
   <div class="col">
-    <shared-search-box (onValue)="SearchByCountry($event)" placeholder="Buscar por país..."></shared-search-box>
+    <shared-search-box (onValue)="SearchByCountry($event)" (onDebounce)="SearchByCountry($event)" placeholder="Buscar por país..."></shared-search-box>
   </div>
 </div>
 <hr>
