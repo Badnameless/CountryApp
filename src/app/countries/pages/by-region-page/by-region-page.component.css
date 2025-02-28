@@ -1,0 +1,13 @@
+.transition{
+  color: black;
+  border: 1px solid #0d6efd;
+}
+
+.btn:hover{
+  border: 1px solid #0d6efd;
+}
+
+.transition:hover{
+  background-color: #0d6efd;
+  color: white;
+}

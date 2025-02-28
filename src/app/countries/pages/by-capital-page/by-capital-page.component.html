@@ -2,13 +2,17 @@
 <hr>
 <div class="row">
   <div class="col">
-    <shared-search-box (onValue)="SearchByCapital($event)" (onDebounce)="SearchByCapital($event)" placeholder="Buscar por capital..."></shared-search-box>
+    <shared-search-box
+    (onValue)="SearchByCapital($event)"
+    (onDebounce)="SearchByCapital($event)"
+    placeholder="Buscar por capital..."
+    [value]="_searchValue"></shared-search-box>
   </div>
 </div>
 <hr>
 <div class="row">
   <div class="col">
-    <countries-table [countries]="countries"></countries-table>
+    <countries-table [countries]="_countries"></countries-table>
   </div>
 </div>
 <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>

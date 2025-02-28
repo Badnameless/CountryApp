@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Country } from '../../interfaces/country';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'countries-table',
@@ -7,8 +7,7 @@ import { Country } from '../../interfaces/country';
   templateUrl: './country-table.component.html',
   styleUrl: './country-table.component.css'
 })
-export class CountryTableComponent {
-
+export class CountryTableComponent{
   @Input()
   public countries: Country[] = [];
 

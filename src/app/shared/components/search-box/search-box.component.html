@@ -1,8 +1,9 @@
 <input
+#txtInput
 type="text"
 class="form-control"
 [placeholder]="placeholder"
-#txtInput
+[value]="value"
 (keyup)="onKeyPress(txtInput.value)"
 (keyup.enter)="emitTerm(txtInput.value)"
 >

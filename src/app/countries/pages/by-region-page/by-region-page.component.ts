@@ -1,9 +1,8 @@
-import { Translation } from './../../interfaces/country';
 import { Component } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
-import { Country } from '../../interfaces/country';
+import { Country } from '../../interfaces/country.interface';
+import { Region } from '../../interfaces/region.type';
 
-type Region = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania'
 
 @Component({
   selector: 'countries-by-region-page',
@@ -13,24 +12,30 @@ type Region = 'Africa' | 'Americas' | 'Asia' | 'Europe' | 'Oceania'
 })
 export class ByRegionPageComponent {
 
-  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']
+  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];
+  public region: Region = '';
 
-  constructor( private countriesService:CountriesService ){}
+  public isLoading: boolean  = false;
 
-  public isLoading:      boolean = false;
+  public selectedRegion?: Region = 'Africa';
 
-  public selectedRegion: string  = '';
+  public _countries:Country[] = [];
 
-  public countries: Country[] = [];
+  constructor(private countriesService:CountriesService){}
 
-  SearchByRegion( term: string ){
+  ngOnInit(): void {
+    this._countries = this.countriesService.cacheStore.byRegion.countries;
+    this.selectedRegion = this.countriesService.cacheStore.byRegion.region;
+  }
+
+  SearchByRegion( term: Region ){
     this.isLoading = true;
 
     this.selectedRegion = term;
 
     this.countriesService.SearchRegion( term )
       .subscribe(countries => {
-        this.countries = countries;
+        this._countries = countries;
 
         this.isLoading = false;
       });
