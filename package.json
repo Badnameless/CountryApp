@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "del:docs": "del ./docs",
-    "build:href": "ng build --base-href /CountryApp/countries/",
+    "build:href": "ng build --base-href",
     "copy:outBrowser": "copyfiles dist/country-app/* ./docs -f",
     "copy:inBrowser": "copyfiles dist/country-app/browser/* ./docs -f",
     "copy:toDocs": "copyfiles docs/browser/* ./docs -f",
